@@ -2,10 +2,10 @@
 import { PlusCircleOutlined } from "@ant-design/icons";
 import { Button, Col, Drawer, Row } from "antd";
 import { useState } from "react";
-import { FormCriarLivro } from "../formCriarLivro";
+import { FormCriarCliente } from "../formCriarCliente";
 
 type Props = {};
-export const CriarLivro = ({}: Props) => {
+export const CriarCliente = ({}: Props) => {
   const [open, setOpen] = useState(false);
 
   const showDrawer = () => {
@@ -26,12 +26,17 @@ export const CriarLivro = ({}: Props) => {
             style={{ width: "100%" }}
             type="primary"
           >
-            Adicionar Livro
+            Criar cliente
           </Button>
         </Col>
       </Row>
-      <Drawer title="Cadastar livro" size="large" onClose={onClose} open={open}>
-        <FormCriarLivro />
+      <Drawer
+        title="Cadastrar cliente"
+        size="large"
+        onClose={onClose}
+        open={open}
+      >
+        <FormCriarCliente />
       </Drawer>
     </div>
   );
