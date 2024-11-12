@@ -13,23 +13,25 @@ export const TableLivros = ({}: Props) => {
       setLivros(response.data.data);
     })();
   }, []);
-
   
   const columns: TableProps<LivroResponse['data'][0]>['columns'] = [
     {
       title:"ID",
-      key:"id"
+      render:(data) =>{return <p>{data.id}</p>}
     },
     {
       title:"Autor",
-      key:"autor"
+      render:(data) =>{return <p>{data.autor}</p>}
+    },
+    {
+      title:"Titulo",
+      render:(data) =>{return <p>{data.titulo}</p>}
     }
   ]
 
   return (
     <div>
-      <div>
-      </div>
+      
       <Table<LivroResponse['data'][0]> columns={columns} dataSource={livros} />
     </div>
   );
