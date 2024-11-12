@@ -1,9 +1,11 @@
-import { TableLivros } from "@/src/components/TableBooks";
+import { CriarLivro } from "@/src/components/criarLivros";
+import { TabelaLivros } from "@/src/components/TabelaLivros";
 
 export default function Home() {
   return (
     <main className="p-12">
-      <TableLivros/>
+      <CriarLivro />
+      <TabelaLivros />
     </main>
   );
 }
