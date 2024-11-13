@@ -2,7 +2,7 @@
 import { LivroResponse } from "@/src/shared/types/Response/Livros";
 import { useEffect, useState } from "react";
 import { getLivros } from "./actions";
-import { Col, Row, Table, TableProps } from "antd";
+import { Col, Row, Table, TableProps, Tag } from "antd";
 
 type Props = {};
 export const TabelaLivros = ({}: Props) => {
@@ -14,6 +14,13 @@ export const TabelaLivros = ({}: Props) => {
       setLivros(response.data.data);
     })();
   }, []);
+
+  const handleStatus = (status: boolean) => {
+    if (status) {
+      return <Tag color="green">Disponível</Tag>;
+    }
+    return <Tag color="red">Indisponível</Tag>;
+  };
 
   const columns: TableProps<LivroResponse["data"][0]>["columns"] = [
     {
@@ -32,6 +39,12 @@ export const TabelaLivros = ({}: Props) => {
       title: "Titulo",
       render: (data) => {
         return <p>{data.titulo}</p>;
+      },
+    },
+    {
+      title: "Status",
+      render: (data) => {
+        return <p>{handleStatus(data.status)}</p>;
       },
     },
   ];
