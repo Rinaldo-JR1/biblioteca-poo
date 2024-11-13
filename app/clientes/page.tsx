@@ -3,7 +3,7 @@ import { TabelaClientes } from "@/src/components/tabelaClientes";
 
 const Clientes = () => {
   return (
-    <div className="p-12">
+    <div className="p-4">
       <CriarCliente />
       <TabelaClientes />
     </div>

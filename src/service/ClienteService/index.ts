@@ -7,7 +7,7 @@ export class ClienteService {
     return await api.get<GetClientesResponse>("/clientes/all");
   }
   static async createCliente(data: FormCriarCliente) {
-    return await api.post<GetClientesResponse>("/clientes/create", {
+    return await api.post("/clientes/create", {
       nome: data.nome,
     });
   }
