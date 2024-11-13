@@ -5,12 +5,12 @@ import { getClientes } from "./actions";
 import { Col, Row, Table, TableProps } from "antd";
 
 type Props = {};
-export const TabelaClientes = ({}: Props) => {
-  const [livros, setLivros] = useState<GetClientesResponse["data"]>([]);
+export const TabelaClientes = ({ }: Props) => {
+  const [clientes, setClientes] = useState<GetClientesResponse["data"]>([]);
   useEffect(() => {
     (async () => {
       const response = await getClientes();
-      setLivros(response.data.data);
+      setClientes(response.data.data);
     })();
   }, []);
 
@@ -29,14 +29,14 @@ export const TabelaClientes = ({}: Props) => {
     },
   ];
 
-  useEffect(() => {}, []);
+  useEffect(() => { }, []);
   return (
     <div>
       <Row>
         <Col span={24}>
           <Table<GetClientesResponse["data"][0]>
             columns={columns}
-            dataSource={livros}
+            dataSource={clientes}
           />
         </Col>
       </Row>
