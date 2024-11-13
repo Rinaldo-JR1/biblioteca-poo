@@ -9,6 +9,7 @@ export interface Data {
   cliente: Cliente;
   dataInicio: Date;
   dataFim: Date;
+  status: boolean;
 }
 
 export interface Cliente {

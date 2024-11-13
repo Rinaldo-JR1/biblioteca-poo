@@ -1,6 +1,7 @@
 import { api } from "@/src/api/config";
 import { FormCriarAluguel } from "@/src/shared/types/forms/formCriarAluguel";
 import { AluguelResponse } from "@/src/shared/types/Response/Alugueis";
+import { stat } from "fs";
 
 export class AluguelService {
   static async getAlugueis() {
@@ -18,5 +19,9 @@ export class AluguelService {
         id: data.cliente,
       },
     });
+  }
+  static async confirmarEntrega(alugel: AluguelResponse["data"][0]) {
+    alugel.status = false;
+    return await api.put(`/alugueis/devolver`, alugel);
   }
 }
